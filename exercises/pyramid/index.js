@@ -14,6 +14,17 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(numberofLevels, currentLevel = 1) {
+  if (numberofLevels === 0 || currentLevel > numberofLevels) {
+    return;
+  } else {
+    const spaces = ' '.repeat(numberofLevels - currentLevel);
+    const hashes = '#'.repeat(currentLevel - 1);
+    
+    console.log(spaces + hashes + '#' + hashes + spaces);
+
+    pyramid(numberofLevels, currentLevel + 1);
+  }
+}
 
 module.exports = pyramid;

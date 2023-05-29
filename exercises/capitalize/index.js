@@ -7,6 +7,21 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
-function capitalize(str) {}
+function capitalize(str) {
+  const result = []
+
+  for (let index = 0; index < str.length; index++) {
+    let prev = str[index - 1];
+    let current = str[index];
+
+    if (!prev || prev === ' ') {
+      result.push(current.toUpperCase());
+    } else {
+      result.push(current);
+    }
+  }
+
+  return result.join('');
+}
 
 module.exports = capitalize;

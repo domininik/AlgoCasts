@@ -8,6 +8,39 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n, memo = {}) {
+  // === memoization solution ===
+
+  if (n < 2) {
+    return n;
+  }
+
+  if (memo[n]) {
+    return memo[n];
+  }
+
+  memo[n] = fib(n - 2, memo) + fib(n - 1, memo);
+  return memo[n];
+
+  // === recursive solution ===
+
+  // if (n < 2) {
+  //   return n;
+  // } else {
+  //   return fib(n - 2) + fib(n - 1);
+  // }
+
+  // === iterative solution ===
+
+  // let array = [0, 1];
+
+  // if (n > 1) {
+  //   for (let i = 2; i <= n; i++) {
+  //     array[i] = array[i - 2] + array[i - 1];
+  //   }
+  // }
+
+  // return array[n];
+}
 
 module.exports = fib;
